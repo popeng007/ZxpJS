@@ -1,6 +1,24 @@
 # ZxpJS
 JavaScript 获取 微信公众号 用户code，获取 Url 址址栏参数，设置、获取、删除 Cookie
 
+## 安装
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ZxpJS</title>
+    <script src="ZxpJS.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      // your code
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
+```
+
 ## 示例
 
 ### Url 地址栏
@@ -37,6 +55,7 @@ Cookie.del('code');
 
 ### 微信公众号
 ```JavaScript
+// 获取用户 code
 var appid = 'eNPjIURC6AcG4tYlNY';
 var code = ZxpJS.WeiXin.getOauthCode(appid);
 // code => '3rMJR6ioyd5AuRALq3Lv63ErHav3fdIm'
