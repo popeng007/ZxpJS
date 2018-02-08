@@ -6,6 +6,7 @@
  * Released under the MIT license
  *
  * Date: 2017-11-28
+ * Update: 2018-02-08
  */
 
  var ZxpJS = {
@@ -81,24 +82,17 @@
      /**
      * 获取微信用户code
      *
+     * @param {String} appid
      * @return {String}
      */
      getOauthCode: function(appid) {
-       var Url = ZxpJS.Url,
-       Cookie = ZxpJS.Cookie;
-       var code = Cookie.get('code');
-
-       if(code == "") {
-         code = Url.get('code');
-       }
-
-       if (code == null) {
+       var code = ZxpJS.Url.get('code');
+       if (code == null || code == "") {
          var redirect_uri = location.href;
          redirect_uri = encodeURIComponent(redirect_uri);
          var u = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_base&state=001#wechat_redirect';
          location.href = u;
        } else {
-         Cookie.set('code', code, 0.05)
          return code;
        }
      }
