@@ -80,11 +80,11 @@
    // 微信相关操作
    WeiXin: {
      /**
-     * 获取微信用户code
-     *
-     * @param {String} appid
-     * @return {String}
-     */
+      * 获取微信用户code
+      *
+      * @param {String} appid
+      * @return {String}
+      */
      getOauthCode: function(appid) {
        var code = ZxpJS.Url.get('code');
        if (code == null || code == "") {
@@ -95,6 +95,16 @@
        } else {
          return code;
        }
-     }
+     },
+
+     /**
+      * 判断是否为微信客户端
+      *
+      * @return Boolean
+      */
+      isWeiXin: function() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        return (ua.match(/MicroMessenger/i) == 'micromessenger');
+      }
    }
  };
